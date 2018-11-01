@@ -31,8 +31,6 @@ describe('Calculate', () => {
     })
   })
 
-
-
   describe('.sum',() => {
     it('returns the sum of an array of numbers', () => {
       const expectedResult = 6;
@@ -61,8 +59,6 @@ describe('Calculate', () => {
     });
   });
 
-
-
   describe('.add', () => {
     it('returns the value of two numbers added together', () => {
       const inputOne = 3;
@@ -74,8 +70,6 @@ describe('Calculate', () => {
       assert.equal(result, expected);
     })
   })
-
-
 
   describe('.subtract', () => {
     it('returns the difference of the first number minus the second number', () => {
@@ -90,8 +84,6 @@ describe('Calculate', () => {
 
   })
 
-
-
   describe('.multiply', () => {
     it('returns the product of two numbers', () => {
       const inputOne = 7;
@@ -103,8 +95,6 @@ describe('Calculate', () => {
       assert.equal(result, expected);
     })
   })
-
-
 
   describe('.divide', () => {
     it('returns the first number divided by the second number', () => {
@@ -128,8 +118,6 @@ describe('Calculate', () => {
     })
   })
 
-
-
   describe('.absoluteValue', () => {
     it('returns the absolute value of the input number', () => {
       const inputOne = -5;
@@ -140,14 +128,75 @@ describe('Calculate', () => {
       assert.equal(result, expected);
     })
   })
+
   describe('.exponential', () => {
     it('returns the result of a base raised to a power', () => {
       // Set up
-      const expected =
+      const base = 3;
+      const power =2;
+      const expected = 9;
       //exercise
-      const result =
+      const result = Calculate.exponential(3,2);
       //Verify
       assert.equal(result, expected);
     });
   })
+
+  describe('.max', () => {
+    it('returns the maximum number in an array', () => {
+      //set up
+      const array = [1,2,3];
+      const expected = 3;
+      //exercise
+      const result = Calculate.max(array);
+      //verify
+      assert.equal(result, expected);
+    });
+    it('throws an Error when the array is empty', () => {
+      //set up
+      const array =[];
+      const expected = Error;
+      //exercises
+      const result = () => {
+        Calculate.max(array);
+      };
+      //Verify
+      assert.throws(result, expected);
+    });
+  });
+
+  describe('.min', () => {
+    it('returns the mimimum number in an array', () => {
+      //set up
+      const array = [1,2,3];
+      const expected = 1;
+      //exercises
+      const result = Calculate.min(array);
+      //verify
+      assert.equal(result, expected);
+    });
+    it('throws an Error when the array is empty', () => {
+      //set up
+      const array = [];
+      const expected = Error;
+      //exercises
+      const result = () => {
+        Calculate.min(array);
+      }
+      //Verify
+      assert.throws(result, expected);
+    });
+  });
+
+  describe('.average', () => {
+    it('returns the average value of an array', () => {
+      //setup
+      const array = [1,2,3];
+      const expected = 2;
+      //exercises
+      const result = Calculate.average(array);
+      //verify
+      assert.equal(result,expected);
+    });
+  });
 });

@@ -47,8 +47,52 @@ const Calculate = {
     }
   },
 
-  exponential(input) {
-    
+  exponential(base,power) {
+    let result =1;
+    for( let i = 0; i < power; i++) {
+      result *= base;
+    }
+    return result;
+  },
+
+  max(array) {
+    const arrayLength = array.length;
+    if (arrayLength===0) {
+      throw new Error;
+    }
+    let maxVal = array[0];
+    for (let i = 1; i < arrayLength; i++) {
+      if (array[i] > maxVal) {
+        maxVal = array[i];
+      }
+    }
+    return maxVal;
+  },
+
+  min(array) {
+    const arrayLength = array.length;
+    if (arrayLength === 0) {
+      throw  new Error;
+    }
+    let minVal = array[0];
+    for(let i=1; i <arrayLength; i++) {
+      if( array[i]< minVal) {
+        minVal = array[i];
+      }
+    }
+    return minVal;
+  },
+
+  average(array) {
+    if(array.length === 0) {
+      return 0;
+    } else {
+      const sum = array.reduce((x, y) => {
+        return x + y;
+      });
+      return sum/array.length;
+    }
+
   }
 }
 
